@@ -1,0 +1,1076 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shyam JI Cake Bakery | Muzaffarnagar</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+
+  --black: #15120f;
+  --gold: #c9a45c;
+  --cream: #faf6ee;
+  --white: #ffffff;
+  --muted: #77716a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--black);
+}
+
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { text-decoration: none; color: inherit; }
+
+header {
+  background: var(--black);
+  color: white;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #493c27;
+}
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.brand small {
+  display: block;
+  font: 10px 'DM Sans', sans-serif;
+  letter-spacing: 4px;
+  color: white;
+  margin-top: 4px;
+}
+
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a { font-size: 13px; color: #eee6d9; }
+nav a:hover { color: var(--gold); }
+
+.cart-button {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 490px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 35px;
+  padding: 65px 8%;
+  background: var(--black);
+  color: white;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+h1 {
+  font-size: clamp(40px, 5.5vw, 68px);
+  line-height: 1.12;
+  margin-bottom: 20px;
+}
+
+h1 span { color: var(--gold); }
+
+.hero p {
+  color: #d1c8bc;
+  line-height: 1.8;
+  max-width: 480px;
+  font-size: 14px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 5px;
+  padding: 13px 19px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-gold { background: var(--gold); color: #17120a; }
+.btn-outline { border: 1px solid var(--gold); color: var(--gold); background: transparent; }
+.btn:hover { opacity: .86; }
+
+.hero-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 180px 180px 8px 8px;
+  border: 2px solid #80683e;
+}
+
+.notice {
+  background: #eee3ce;
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  color: #4b3a20;
+  font-weight: 600;
+}
+
+section { padding: 65px 8%; }
+
+.section-title { text-align: center; margin-bottom: 35px; }
+.section-title .eyebrow { color: #96702f; margin-bottom: 10px; }
+.section-title h2 { font-size: clamp(29px, 4vw, 42px); margin-bottom: 10px; }
+.section-title p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.filter {
+  border: 1px solid #d9cbb2;
+  padding: 9px 15px;
+  border-radius: 30px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.filter.active, .filter:hover {
+  background: var(--black);
+  color: white;
+  border-color: var(--black);
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.product {
+  background: white;
+  border: 1px solid #e8dfd1;
+  border-radius: 9px;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #0000000c;
+}
+
+.product img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  background: #f7f3ec;
+}
+
+.product-info { padding: 18px; }
+.tag { font-size: 10px; color: #467c4c; font-weight: 700; }
+.product h3 { font-size: 21px; margin: 8px 0; }
+.product p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.cake-prices {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 14px 0;
+  padding: 10px;
+  background: #f7f3ec;
+  border-radius: 5px;
+}
+.cake-price-option { font-size: 12px; color: var(--muted); }
+.cake-price-option strong { display: block; color: var(--black); font-size: 15px; }
+.cake-price-note { font-size: 12px; font-weight: 700; color: var(--gold); }
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 17px;
+}
+.product-bottom--no-price { justify-content: flex-end; }
+.price { font-size: 19px; font-weight: 700; }
+.add-btn {
+  background: var(--black);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 13px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.add-btn:hover { background: #745726; }
+
+.events { background: #eee5d6; }
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: white;
+  border: 1px solid #e0d4c2;
+  border-radius: 9px;
+  padding: 28px 23px;
+}
+
+.event-icon { font-size: 34px; }
+.event-card h3 { font-size: 23px; margin: 13px 0 10px; }
+.event-card p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+.event-card button { margin-top: 18px; }
+
+.party-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.party-item {
+  overflow: hidden;
+  background: white;
+  border: 1px solid #e0d4c2;
+  border-radius: 8px;
+}
+
+.party-item img {
+  display: block;
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  background: #f7f3ec;
+}
+
+.party-item h3 { padding: 13px 15px 15px; font-size: 18px; }
+
+.order-section {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.order-intro h2 { font-size: 38px; margin-bottom: 15px; }
+.order-intro p { color: var(--muted); line-height: 1.8; font-size: 14px; }
+.order-intro ul { list-style: none; margin-top: 20px; }
+.order-intro li { padding: 8px 0; font-size: 13px; }
+
+.order-box {
+  background: white;
+  padding: 26px;
+  border: 1px solid #e8dfd1;
+  border-radius: 9px;
+}
+
+.order-box h3 { font-size: 24px; margin-bottom: 18px; }
+
+.field { margin-bottom: 14px; }
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.field input, .field select, .field textarea {
+  width: 100%;
+  border: 1px solid #ded5c7;
+  padding: 12px;
+  border-radius: 5px;
+  background: #fffdf9;
+  outline-color: var(--gold);
+  font-size: 13px;
+}
+
+.field textarea { min-height: 75px; resize: vertical; }
+.order-box .btn { width: 100%; }
+
+.cart-section { background: white; }
+.cart-items { margin: 20px 0; }
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #eee;
+  padding: 14px 0;
+  font-size: 13px;
+}
+.quantity { display: flex; align-items: center; gap: 10px; }
+.quantity button {
+  width: 28px; height: 28px;
+  background: #f2eadc; border: 0;
+  cursor: pointer; border-radius: 4px;
+}
+.cart-total { text-align: right; font-size: 22px; font-weight: 700; }
+.empty { color: var(--muted); font-size: 13px; padding: 10px 0; }
+
+.contacts {
+  background: var(--black);
+  color: white;
+  text-align: center;
+}
+.contacts h2 { font-size: 38px; margin-bottom: 12px; }
+.contacts > p { color: #cfc5b8; font-size: 13px; line-height: 1.8; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 650px;
+  margin: 30px auto 0;
+}
+
+.contact-card {
+  border: 1px solid #5b4b31;
+  padding: 22px;
+  border-radius: 8px;
+}
+.contact-card h3 { color: var(--gold); font-size: 21px; }
+.contact-card p { margin: 12px 0; font-size: 14px; }
+
+footer {
+  background: #0d0b09;
+  color: #bcb2a6;
+  text-align: center;
+  padding: 22px;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #17130e;
+  color: white;
+  border: 1px solid var(--gold);
+  padding: 13px 20px;
+  border-radius: 7px;
+  font-size: 12px;
+  display: none;
+  z-index: 10;
+  max-width: 90%;
+}
+
+@media (max-width: 800px) {
+  header { padding: 17px 5%; }
+  nav { order: 3; width: 100%; justify-content: center; gap: 17px; }
+  .hero { grid-template-columns: 1fr; padding: 50px 6%; }
+  .hero-image { height: 280px; max-width: 420px; margin: auto; }
+  section { padding: 48px 6%; }
+  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+  .product img { height: 190px; }
+  .product-info { padding: 12px; }
+  .product h3 { font-size: 17px; }
+  .product-bottom { align-items: flex-start; flex-direction: column; }
+  .event-grid { grid-template-columns: 1fr; }
+  .party-items { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .party-item img { height: 155px; }
+  .party-item h3 { padding: 11px; font-size: 16px; }
+  .order-section { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 430px) {
+  .products { grid-template-columns: 1fr; }
+  .product img { height: 250px; }
+  .product-bottom { flex-direction: row; align-items: center; }
+  .party-items { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  nav { gap: 13px; }
+  nav a { font-size: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="#home">
+    Shyam JI
+    <small>CAKE BAKERY</small>
+  </a>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#cakes">Cakes</a>
+    <a href="#party">Party Orders</a>
+    <a href="#order">Order Now</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button class="cart-button" onclick="goToCart()">
+    🛒 Cart (<span id="cartCount">0</span>)
+  </button>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">MUZAFFARNAGAR · MADE WITH LOVE</div>
+    <h1>Sweet Moments,<br><span>Beautiful Memories.</span></h1>
+    <p>
+      Celebrate every special moment with delicious eggless cakes,
+      birthday surprises, wedding celebrations and party essentials.
+      Home delivery available in Muzaffarnagar.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#cakes" class="btn btn-gold">Explore Cakes →</a>
+      <a href="#party" class="btn btn-outline">Party Orders</a>
+    </div>
+  </div>
+
+  <img class="hero-image"
+  
+    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+    alt="Celebration cake"
+    onerror="this.style.display='none'">
+</section>
+
+<div class="notice">
+  ✓ ALL CAKES ARE EGGLESS &nbsp; | &nbsp;
+  🎉 PARTY ORDERS ACCEPTED &nbsp; | &nbsp;
+  🏠 HOME DELIVERY IN MUZAFFARNAGAR
+</div>
+
+<section id="cakes">
+  <div class="section-title">
+    <div class="eyebrow">OUR CAKE COLLECTION</div>
+    <h2>Made for Your Celebrations</h2>
+    <p>Choose your favourite eggless cake and add it to your cart.</p>
+  </div>
+
+  <div class="filters">
+    <button class="filter active" data-filter="All">All Cakes</button>
+    <button class="filter" data-filter="Chocolate">Chocolate</button>
+    <button class="filter" data-filter="Classic">Classic</button>
+    <button class="filter" data-filter="Special">Special</button>
+    <button class="filter" data-filter="Fruit">Fruit</button>
+    <button class="filter" data-filter="Premium">Premium</button>
+  </div>
+
+  <div class="products" id="products"></div>
+</section>
+
+<section class="events" id="party">
+  <div class="section-title">
+    <div class="eyebrow">MORE THAN JUST CAKES</div>
+    <h2>Party & Celebration Orders</h2>
+    <p>Tell us about your occasion. We will discuss your requirements and availability.</p>
+  </div>
+
+  <div class="party-items">
+    <article class="party-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1K7Y69SMAtglMhETpj2apLQw8WOe3FpiNa3vheNGcLA&s=10" loading="lazy">
+      <h3>Party Balloons</h3>
+    </article>
+    <article class="party-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsUMK8Ik70QCHD5iJ43rvNkF9il_abBqNMJTtnzNf8NQ&s=10" loading="lazy">
+      <h3>Birthday Caps</h3>
+    </article>
+    <article class="party-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDxOniKToLgPdYKyRs92i9eWwkiKAnjHhpX_04nKX-iQ&s=10" loading="lazy">
+      <h3>Party Poppers</h3>
+    </article>
+    <article class="party-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHoslcDl0tiQGrmFUXjRwMnQGYbSuKJeBId-be0S-dSA&s=10" alt="Fun party masks and celebration accessories" loading="lazy">
+      <h3>Party Masks</h3>
+    </article>
+    <article class="party-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIF0XEgd0BCF8uz7J6puUqvEtT9aRcCdKX34b8osk1wA&s=10" loading="lazy">
+      <h3>Birthday Candles</h3>
+    </article>
+    <article class="party-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxuMGom6DQkQdtd9XFL2Czy08dG7tImMqvfnpSPPHZcA&s=10" alt="Decorative candles for a celebration" loading="lazy">
+      <h3>Stylish Candles</h3>
+    </article>
+  </div>
+
+  <div class="event-grid">
+    <article class="event-card">
+      <div class="event-icon">🎂</div>
+      <h3>Birthday Parties</h3>
+      <p>Birthday cakes, candles, balloons and party essentials for your special day.</p>
+      <button class="btn btn-gold" onclick="selectEvent('Birthday Party')">Enquire Now →</button>
+    </article>
+
+    <article class="event-card">
+      <div class="event-icon">💍</div>
+      <h3>Marriage & Wedding</h3>
+      <p>Wedding celebrations, function cakes and party supplies for special occasions.</p>
+      <button class="btn btn-gold" onclick="selectEvent('Marriage / Wedding')">Enquire Now →</button>
+    </article>
+
+    <article class="event-card">
+      <div class="event-icon">🎈</div>
+      <h3>Party Materials</h3>
+      <p>Ask about balloons, candles, decorations and other party materials.</p>
+      <button class="btn btn-gold" onclick="selectEvent('Party Materials')">Enquire Now →</button>
+    </article>
+  </div>
+</section>
+
+<section class="order-section" id="order">
+  <div class="order-intro">
+    <div class="eyebrow">EASY ORDERING</div>
+    <h2>Let's Make It Special.</h2>
+    <p>
+      Select your cakes, fill in your delivery details and send your order
+      through WhatsApp. You can choose which contact should receive it.
+    </p>
+
+    <ul>
+      <li>✓ Eggless cakes</li>
+      <li>✓ Birthday and wedding orders</li>
+      <li>✓ Party materials enquiry</li>
+      <li>✓ Home delivery in Muzaffarnagar</li>
+      <li>✓ Order confirmation directly with the bakery</li>
+    </ul>
+  </div>
+
+  <form class="order-box" id="orderForm">
+    <h3>Delivery Details</h3>
+
+    <div class="field">
+      <label for="contactPerson">Send order to</label>
+      <select id="contactPerson" required>
+        <option value="abhishek">Abhishek Jain</option>
+        <option value="karthik">Kartik Singhal</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="customerName">Your Name *</label>
+      <input id="customerName" required placeholder="Enter your full name">
+    </div>
+
+    <div class="field">
+      <label for="customerPhone">Your Mobile Number *</label>
+      <input id="customerPhone" type="tel" inputmode="numeric"
+        pattern="[0-9]{10}" maxlength="10" required
+        placeholder="10-digit mobile number">
+    </div>
+
+    <div class="field">
+      <label for="orderType">Order Type *</label>
+      <select id="orderType" required>
+        <option value="Cake Order">Cake Order</option>
+        <option value="Birthday Party">Birthday Party</option>
+        <option value="Marriage / Wedding">Marriage / Wedding</option>
+        <option value="Party Materials">Party Materials</option>
+        <option value="Other Celebration">Other Celebration</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="deliveryDate">Required Date</label>
+      <input type="date" id="deliveryDate">
+    </div>
+
+    <div class="field">
+      <label for="deliveryAddress">Delivery Address in Muzaffarnagar *</label>
+      <textarea id="deliveryAddress" required
+        placeholder="House number, locality, landmark"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="notes">Message / Cake Design / Party Requirements</label>
+      <textarea id="notes"
+        placeholder="Cake flavour, weight, decoration, party items, etc."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-gold">
+      Send Order on WhatsApp ↗
+    </button>
+  </form>
+</section>
+
+<section class="cart-section" id="cart">
+  <div class="section-title">
+    <div class="eyebrow">YOUR SELECTION</div>
+    <h2>Shopping Cart</h2>
+    <p>Review your selected cakes before sending an order.</p>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-total">Price will be confirmed by the bakery.</div>
+
+  <div style="text-align:center;margin-top:22px">
+    <button class="btn btn-gold" onclick="goToOrder()">
+      Continue to Order →
+    </button>
+  </div>
+</section>
+
+<section class="contacts" id="contact">
+  <div class="eyebrow">WE ARE HERE FOR YOU</div>
+  <h2>Contact Our Bakery</h2>
+  <p>
+    Shyam JI Cake Bakery<br>
+    Muzaffarnagar, Uttar Pradesh<br>
+    Eggless Cakes · Party Orders · Home Deliveryc
+  </p>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Abhishek Jain</h3>
+      <p>8923813080</p>
+      <button class="btn btn-gold" onclick="contactWhatsApp('abhishek')">
+        WhatsApp Abhishek
+      </button>
+    </div>
+
+    <div class="contact-card">
+      <h3>Kartik Singhal</h3>
+      <p>8755504378</p>
+      <button class="btn btn-gold" onclick="contactWhatsApp('karthik')">
+        WhatsApp Kartik
+      </button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="brand">Shyam JI Cake Bakery</div>
+  <p>Sweetness for every celebration. Made with love.</p>
+  <p>© <span id="year"></span> Shyam JI Cake Bakery. All rights reserved.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// ----------------------------------
+// 1. BAKERY CONTACT NUMBERS
+// ----------------------------------
+const CONTACTS = {
+  abhishek: {
+    name: "Abhishek Jain",
+    number: "918923813080"
+  },
+  karthik: {
+    name: "Kartik Singhal",
+    number: "918755504378"
+  }
+};
+
+// ----------------------------------
+// 2. EGGLESS CAKE MENU
+// ----------------------------------
+const cakes = [
+  {
+    id: 1,
+    name: "Chocolate Truffle Cake",
+    category: "Chocolate",
+    description: "Rich chocolate flavour for chocolate lovers.",
+    prices: { halfKg: 500, oneKg: 900 },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfNPCPdz5V-iOEGGFzjtwo_rPzER5Aierhsu65ZBiqXw&s"
+  },
+  {
+    id: 2,
+    name: "Black Forest Cake",
+    category: "Classic",
+    description: "A classic chocolate and cream cake.",
+    prices: { halfKg: 400, oneKg: 650 },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNnLivVD8LK_b5plqrdAExAq9jCcZGnOtL7TsYXkgeOA&s=10"
+  },
+  {
+    id: 3,
+    name: "White Forest Cake",
+    category: "Classic",
+    description: "Creamy cake with white chocolate flavour.",
+    prices: { halfKg: 400, oneKg: 650 },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcI54hmdKX2KC1PFG1XMV1qC9uaTueB8GG6xFdMxJ7jQ&s=10"
+  },
+  {
+    id: 4,
+    name: "Red Velvet Cake",
+    category: "Special",
+    description: "An elegant cake for special celebrations.",
+    prices: { halfKg: 400, oneKg: 750 },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAu3pC0d1J84qs_MRKh6p2jzpKvJFANlIpBg89JHgEsQ&s=10"
+  },
+  {
+    id: 5,
+    name: "Pineapple Cake",
+    category: "Fruit",
+    description: "A refreshing fruity celebration cake.",
+    prices: { halfKg: 320, oneKg: 550 },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhWO_7NAYK2yqV0zWFD1AVEwHN4TPBmPCb1ijaaypSIg&s=10"
+  },
+  {
+    id: 6,
+    name: "Butterscotch Cake",
+    category: "Classic",
+    description: "Sweet butterscotch with caramel flavour.",
+    prices: { halfKg: 320, oneKg: 550 },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc1QYwtGielIQJOTTqDE2Lfe0_Jw6tku_GcXZMzKSpKg&s=10"
+  },
+  {
+    id: 7,
+    name: "Strawberry Cake",
+    category: "Fruit",
+    description: "A sweet strawberry-inspired treat.",
+    prices: { halfKg: 320, oneKg: 550 },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk9k6Sx-ctvaTrQZy2Zi5ENfRlD493c99R6fP001XkSg&s=10"
+  },
+  {
+    id: 8,
+    name: "Vanilla Cake",
+    category: "Classic",
+    description: "A soft and delicious vanilla cake.",
+    prices: { halfKg: 320, oneKg: 550 },
+    image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=80https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaJ52vxUYO3YoDezxFyrYiDLyDFsBjDC-3AZv_eYgnrg&s=10"
+  },
+  {
+    id: 9,
+    name: "Mango Cake",
+    category: "Fruit",
+    description: "A delightful mango-flavoured cake.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTohimKScmbUIp79OwxGor5aYBFsxtQNgWCFqji78BFYQ&s=10"
+  },
+  {
+    id: 10,
+    name: "Oreo Cake",
+    category: "Chocolate",
+    description: "Chocolate cream with cookie-inspired flavour.",
+    image: "data:image/jpeg;base64,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"
+  },
+  {
+    id: 11,
+    name: "KitKat Cake",
+    category: "Chocolate",
+    description: "A fun chocolate cake for birthdays.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSffwkdha0THNKqEjOlt22Waf7fhYeydgugAc27GmiAjQ&s=10"
+  },
+  {
+    id: 12,
+    name: "Ferrero Rocher Cake",
+    category: "Premium",
+    description: "A premium chocolate-inspired celebration cake.",
+    prices: { halfKg: 700, oneKg: 1350 },
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1SB1d2nGxjlZuY0pqmvEG3GXaYE3oHNGQXB7IwMNGAg&s=10"
+  },
+  {
+    id: 13,
+    name: "Fresh Fruit Cake",
+    category: "Fruit",
+    description: "A colourful fruity celebration cake.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYYZVqshGqH9XPM4jg2qddPzV_VAQXI4q-_iSUwqp6XA&s=10"
+  },
+  {
+    id: 14,
+    name: "Photo Cake",
+    category: "Special",
+    description: "Personalise your cake with a photo.",
+    pricingNote: "Customized/theme cakes available — extra charges apply.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2V5eupeQFdDBY4vfyTQzd5yYS4PuPFeAu54DaSt7GZw&s=10"
+  }
+];
+
+// ----------------------------------
+// 3. WEBSITE CART
+// ----------------------------------
+let cart = {};
+
+const productsEl = document.getElementById("products");
+const cartItemsEl = document.getElementById("cartItems");
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.display = "block";
+
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => {
+    toast.style.display = "none";
+  }, 2600);
+}
+
+// ----------------------------------
+// 4. DISPLAY CAKES
+// ----------------------------------
+function renderProducts(category = "All") {
+  const visibleCakes = category === "All"
+    ? cakes
+    : cakes.filter(cake => cake.category === category);
+
+  productsEl.innerHTML = visibleCakes.map(cake => `
+    <article class="product">
+      <img
+        src="${cake.image}"
+        alt="${cake.name}"
+        style="width:100%; height:250px; object-fit:cover;"
+        loading="lazy"
+        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80';">
+
+      <div class="product-info">
+        <h3>${cake.name}</h3>
+        <p>${cake.description}</p>
+        ${cake.prices ? `
+          <div class="cake-prices" aria-label="Cake prices">
+            <div class="cake-price-option">½ kg<strong>₹${cake.prices.halfKg}</strong></div>
+            <div class="cake-price-option">1 kg<strong>₹${cake.prices.oneKg}</strong></div>
+          </div>
+        ` : `<p class="cake-price-note">${cake.pricingNote || "Price on request"}</p>`}
+        <p>🎁 Special discounts available! Ask us while ordering.</p>
+        <button class="add-btn" onclick="addToCart(${cake.id})">
+          + Add to Cart
+        </button>
+      </div>
+    </article>
+  `).join("");
+}
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+    renderProducts(button.dataset.filter);
+  });
+});
+
+// ----------------------------------
+// 5. CART FUNCTIONS
+// ----------------------------------
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  renderCart();
+  showToast("Cake added to your cart!");
+}
+
+function changeQuantity(id, amount) {
+  cart[id] = (cart[id] || 0) + amount;
+
+  if (cart[id] <= 0) {
+    delete cart[id];
+  }
+
+  renderCart();
+}
+
+function renderCart() {
+  const entries = cakes.filter(cake => cart[cake.id]);
+
+  document.getElementById("cartCount").textContent =
+    Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+
+  if (entries.length === 0) {
+    cartItemsEl.innerHTML =
+      '<p class="empty">Your cart is empty. Explore our cake collection!</p>';
+    return;
+  }
+
+  cartItemsEl.innerHTML = entries.map(cake => `
+    <div class="cart-row">
+      <div>
+        <strong>${cake.name}</strong><br>
+        <span>Price will be confirmed by the bakery.</span>
+      </div>
+
+      <div class="quantity">
+        <button onclick="changeQuantity(${cake.id},-1)"
+          aria-label="Decrease quantity">−</button>
+        <span>${cart[cake.id]}</span>
+        <button onclick="changeQuantity(${cake.id},1)"
+          aria-label="Increase quantity">+</button>
+      </div>
+
+    </div>
+  `).join("");
+}
+
+function goToCart() {
+  document.getElementById("cart").scrollIntoView({ behavior: "smooth" });
+}
+
+function goToOrder() {
+  if (Object.keys(cart).length === 0) {
+    showToast("Please add a cake to your cart first.");
+    document.getElementById("cakes").scrollIntoView({ behavior: "smooth" });
+    return;
+  }
+
+  document.getElementById("orderType").value = "Cake Order";
+  document.getElementById("order").scrollIntoView({ behavior: "smooth" });
+}
+
+// ----------------------------------
+// 6. PARTY ENQUIRIES
+// ----------------------------------
+function selectEvent(eventName) {
+  document.getElementById("orderType").value = eventName;
+  document.getElementById("notes").value =
+    "I would like to enquire about " + eventName +
+    ". Please share available options and prices.";
+
+  document.getElementById("order").scrollIntoView({ behavior: "smooth" });
+}
+
+// ----------------------------------
+// 7. WHATSAPP MESSAGES
+// ----------------------------------
+function openWhatsApp(contactKey, message) {
+  const contact = CONTACTS[contactKey];
+
+  if (!contact) {
+    showToast("Please select a valid contact.");
+    return;
+  }
+
+  const encodedMessage = encodeURIComponent(message);
+  const appUrl = "whatsapp://send?phone=" + contact.number +
+    "&text=" + encodedMessage;
+  const webUrl = "https://wa.me/" + contact.number +
+    "?text=" + encodedMessage;
+
+  // Open the WhatsApp link directly from the user's click.
+  // Try the desktop app first, then provide a visible fallback.
+  showToast("Opening WhatsApp...");
+
+  const fallbackTimer = window.setTimeout(() => {
+    const useWeb = window.confirm(
+      "WhatsApp app did not open? Press OK to open WhatsApp in your browser."
+    );
+    if (useWeb) {
+      window.open(webUrl, "_blank");
+    }
+  }, 1200);
+
+  window.addEventListener("blur", () => window.clearTimeout(fallbackTimer), { once: true });
+
+  // Use a new tab so the bakery website and entered order details stay open.
+  const appTab = window.open(appUrl, "_blank");
+  if (!appTab) {
+    window.clearTimeout(fallbackTimer);
+    // If Chrome blocks the app tab, open the standard WhatsApp link instead.
+    window.location.href = webUrl;
+  }
+}
+
+function contactWhatsApp(contactKey) {
+  const contact = CONTACTS[contactKey];
+
+  openWhatsApp(
+    contactKey,
+    "Hello " + contact.name +
+    "! I found Shyam JI Cake Bakery's website. " +
+    "I would like to enquire about eggless cakes, party orders and home delivery in Muzaffarnagar."
+  );
+}
+
+// ----------------------------------
+// 8. SUBMIT CUSTOMER ORDER
+// ----------------------------------
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const contactKey = document.getElementById("contactPerson").value;
+  const customerName = document.getElementById("customerName").value.trim();
+  const customerPhone = document.getElementById("customerPhone").value.trim();
+  const orderType = document.getElementById("orderType").value;
+  const deliveryDate = document.getElementById("deliveryDate").value;
+  const address = document.getElementById("deliveryAddress").value.trim();
+  const notes = document.getElementById("notes").value.trim();
+
+  const cartCakes = cakes.filter(cake => cart[cake.id]);
+
+  const cakeDetails = cartCakes.length
+    ? cartCakes.map(cake =>
+        cake.name + " x " + cart[cake.id]
+      ).join("\n")
+    : "No cakes selected in cart.";
+
+  const total = cartCakes.length
+    ? "\nPlease confirm the cake price and availability."
+    : "";
+
+  const message = [
+    "NEW ORDER / ENQUIRY",
+    "Shyam JI Cake Bakery",
+    "--------------------------",
+    "Customer: " + customerName,
+    "Mobile: " + customerPhone,
+    "Order type: " + orderType,
+    "Required date: " + (deliveryDate || "To be discussed"),
+    "Delivery address: " + address,
+    "",
+    "Cakes:",
+    cakeDetails,
+    total,
+    "",
+    "Party / design requirements: " + (notes || "Not specified"),
+    "",
+    "Please confirm availability, final price and delivery details.",
+    "Thank you!"
+  ].join("\n");
+
+  openWhatsApp(contactKey, message);
+});
+
+// ----------------------------------
+// 9. INITIALIZE WEBSITE
+// ----------------------------------
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const today = new Date();
+const localDate = [
+  today.getFullYear(),
+  String(today.getMonth() + 1).padStart(2, "0"),
+  String(today.getDate()).padStart(2, "0")
+].join("-");
+
+document.getElementById("deliveryDate").min = localDate;
+
+renderProducts();
+renderCart();
+</script>
+
+</body>
+</html>
